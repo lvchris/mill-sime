@@ -2,7 +2,7 @@ version: '3.8'
 services:
   postgresql:
     container_name: postgresql
-    image: postgres:15.1
+    image: postgres:16.3-alpine
     ports:
       - '5432:5432'
     environment:
