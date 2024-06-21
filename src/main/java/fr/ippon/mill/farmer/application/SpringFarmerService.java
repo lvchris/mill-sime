@@ -10,13 +10,13 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 public class SpringFarmerService extends FarmerService {
 
-    public SpringFarmerService(FarmerRepository farmerRepository) {
-        super(farmerRepository);
-    }
+  public SpringFarmerService(FarmerRepository farmerRepository) {
+    super(farmerRepository);
+  }
 
-    @Transactional
-    @Override
-    public String register(Farmer farmer) throws FarmerAlreadyExistsException {
-        return super.register(farmer);
-    }
+  @Transactional
+  @Override
+  public String register(Farmer farmer) throws FarmerAlreadyExistsException {
+    return super.register(farmer);
+  }
 }
