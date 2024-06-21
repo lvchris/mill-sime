@@ -33,7 +33,7 @@ components:
       required:
         - cereal
         - farmerId
-        - harvestDay
+        - deliveryDate
         - quantity
       properties:
         cereal:
@@ -43,10 +43,10 @@ components:
           type: string
           description: Identifier of the farmer providing the cereal
           example: f8351282-0c2b-47eb-a0eb-d663fe989376
-        harvestDay:
+        deliveryDate:
           type: string
           format: date
-          description: Date of the harvest
+          description: Date to deliver the cereal
         quantity:
           description: Quantity of Cereal (tons)
           type: number
