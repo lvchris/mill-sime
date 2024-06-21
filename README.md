@@ -6,7 +6,7 @@ Pour être performant, nous avons besoin d'informatiser nos processus.
 ## Story mapping
 
 Après un travail acharné avec la team Product Owner. Nous avons pu construire la story map suivante:
-![img](./docs/user-story-map.png)
+![img](/docs/user-story-map.png)
 
 
 En découle des User stories que nous avons priorisées au courant des 2 sprints précédents.  
@@ -50,15 +50,15 @@ La facturation a été isolée sur un microservice dédié et ne fera donc pas l
 Les périmètres fonctionnels "Gestion des fermiers" et "Import des matières premières" sont rassemblés au sein du même dépôt de code qui permet de déployer un microservice exposant des API REST.
 
 L'architecture technique choisie pour ce microservice est [l'architecture hexagonale](https://blog.ippon.fr/2021/02/17/spring-boot-hexagone/) :
-![img](./docs/technical-architecture.png)
+![img](/docs/technical-architecture.png)
 
 Concernant la stack technique, voici la liste des langages et frameworks utilisés :
-* Java 17
-* Springboot 2.7.6
+* Java 21
+* Springboot 3.3.1
 
 
 Il a aussi été choisi de faire du "Contrat First" pour la gestion des contrats d'API.
-Le dossier [api-contracts](./api-contracts) contient les contrats au format OpenAPI.
+Le dossier [api-contracts](/api-contracts) contient les contrats au format OpenAPI.
 
 ### Lancer l'application en local
 
