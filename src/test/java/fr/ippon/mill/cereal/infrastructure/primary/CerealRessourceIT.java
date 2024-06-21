@@ -15,6 +15,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.MOCK)
 @AutoConfigureMockMvc
+@Disabled("Should be implemented during the exercise")
 class CerealRessourceIT {
 
     @Autowired
@@ -27,13 +28,13 @@ class CerealRessourceIT {
                 .contentType(MediaType.APPLICATION_JSON)
                 .characterEncoding(StandardCharsets.UTF_8)
                 .content("""
-                {
-                "email": "jean.dupont@fermier.fr",
-                "firstName": "Jean",
-                "lastName": "Dupont",
-                "phoneNumber": "+33 123456789"
-                }
-                """));
+                        {
+                        "email": "jean.dupont@fermier.fr",
+                        "firstName": "Jean",
+                        "lastName": "Dupont",
+                        "phoneNumber": "+33 123456789"
+                        }
+                        """));
 
         // When
         mockMvc.perform(post("/api/cereals")

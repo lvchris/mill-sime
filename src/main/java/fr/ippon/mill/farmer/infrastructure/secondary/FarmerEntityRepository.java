@@ -7,10 +7,10 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.Optional;
 
 @Repository
-public interface FarmerEntityRepository  extends JpaRepository<FarmerEntity, Long> {
+public interface FarmerEntityRepository extends JpaRepository<FarmerEntity, Long> {
 
-    @Transactional(readOnly = true)
-    boolean existsByEmail(String email);
+  @Transactional(readOnly = true)
+  boolean existsByEmail(String email);
 
-    Optional<FarmerEntity> findByReference(String reference);
+  Optional<FarmerEntity> findByReference(String reference);
 }
