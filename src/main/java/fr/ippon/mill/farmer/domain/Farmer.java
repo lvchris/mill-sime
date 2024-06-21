@@ -2,7 +2,6 @@ package fr.ippon.mill.farmer.domain;
 
 import fr.ippon.mill.error.domain.Assert;
 
-import java.util.Objects;
 import java.util.UUID;
 
 public class Farmer {

@@ -1,8 +1,14 @@
 package fr.ippon.mill.farmer.infrastructure.secondary;
 
 import fr.ippon.mill.farmer.domain.Farmer;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.SequenceGenerator;
+import jakarta.persistence.Table;
 
-import javax.persistence.*;
 import java.util.Objects;
 import java.util.UUID;
 
