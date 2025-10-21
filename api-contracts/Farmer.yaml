@@ -4,7 +4,7 @@ info:
   description: Farmer API
   version: 1.0.0
 servers:
-  - url: 'http//localhost:8080/api/farmers'
+  - url: 'http://localhost:8080/api/farmers'
 paths:
   /:
     post:
