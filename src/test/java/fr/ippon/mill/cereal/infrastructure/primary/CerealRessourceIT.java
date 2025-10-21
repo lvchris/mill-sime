@@ -7,6 +7,7 @@ import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMock
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.MvcResult;
 
 import java.nio.charset.StandardCharsets;
 
@@ -24,31 +25,34 @@ class CerealRessourceIT {
     @Test
     void should_create_new_cereal_transaction() throws Exception {
         // Given
-        mockMvc.perform(post("/api/farmers")
-                .contentType(MediaType.APPLICATION_JSON)
-                .characterEncoding(StandardCharsets.UTF_8)
-                .content("""
+      MvcResult result = mockMvc.perform(post("/api/farmers")
+          .contentType(MediaType.APPLICATION_JSON)
+          .characterEncoding(StandardCharsets.UTF_8)
+          .content("""
                         {
                         "email": "jean.dupont@fermier.fr",
                         "firstName": "Jean",
                         "lastName": "Dupont",
                         "phoneNumber": "+33 123456789"
                         }
-                        """));
+                        """))
+        .andReturn();
+      String locationHeader = result.getResponse().getHeader("Location");
 
+      String farmerId = locationHeader.substring(locationHeader.lastIndexOf('/') + 1);
         // When
-        mockMvc.perform(post("/api/cereals")
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .characterEncoding(StandardCharsets.UTF_8)
-                        .content("""
+      mockMvc.perform(post("/api/cereals")
+          .contentType(MediaType.APPLICATION_JSON)
+          .characterEncoding(StandardCharsets.UTF_8)
+          .content(String.format("""
                                 {
                                   "cereal": "BLE",
-                                  "farmerId": "a046b054-1eae-451d-afa1-8b3202f1902a",
+                                  "farmerId": "%s",
                                   "deliveryDate": "2022-11-21",
                                   "quantity": 7.23
                                 }
-                                """))
-                // Then
-                .andExpect(status().isOk());
+                                """, farmerId)))
+        // Then
+        .andExpect(status().isCreated());
     }
 }
