@@ -73,6 +73,11 @@ Il suffit alors de lancer via Maven l'application spring-boot :
 ./mvnw spring-boot:run
 ```
 
+### Appliquer des migration flyway
+
+```shell
+./mvnw flyway:migrate
+```
 
 
 

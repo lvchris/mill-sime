@@ -110,6 +110,14 @@
 					</execution>
 				</executions>
 			</plugin>
+      <plugin>
+        <groupId>org.flywaydb</groupId>
+        <artifactId>flyway-maven-plugin</artifactId>
+        <configuration>
+          <url>jdbc:postgresql://localhost:5432/mill_db</url>
+          <user>admin</user>
+        </configuration>
+      </plugin>
 		</plugins>
 	</build>
 
