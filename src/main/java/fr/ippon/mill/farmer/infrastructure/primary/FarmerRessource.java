@@ -15,11 +15,12 @@ import org.springframework.web.bind.annotation.RestController;
 import java.net.URI;
 
 @RestController
-@RequestMapping(FarmerRessource.FARMER_API_URI)
 @Validated
 public class FarmerRessource {
 
   public static final String FARMER_API_URI = "/api/farmers";
+
+  public static final String CEREAL_API_URI = "/api/cereals";
 
   private final FarmerService farmerService;
 
@@ -28,7 +29,8 @@ public class FarmerRessource {
   }
 
   @PostMapping
-  public ResponseEntity<Void> create(@RequestBody @Valid CreateFarmerRequest newFarmer) {
+  @RequestMapping(FarmerRessource.FARMER_API_URI)
+  public ResponseEntity<Void> createFarmer(@RequestBody @Valid CreateFarmerRequest newFarmer) {
     Farmer farmer = Farmer.create(newFarmer.getFirstName(), newFarmer.getLastName(), newFarmer.getEmail(), newFarmer.getPhoneNumber());
     try {
       String reference = farmerService.register(farmer);
@@ -37,5 +39,10 @@ public class FarmerRessource {
     } catch (FarmerAlreadyExistsException farmerAlreadyExistsException) {
       return ResponseEntity.status(HttpStatus.CONFLICT).build();
     }
+  }
+
+  @PostMapping
+  @RequestMapping(FarmerRessource.CEREAL_API_URI)
+  public ResponseEntity<Void> createCereals(@RequestBody @Valid CerealRequest cerealRequest) {
   }
 }
