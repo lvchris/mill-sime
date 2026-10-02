@@ -1,6 +1,9 @@
 package fr.ippon.mill.farmer.infrastructure.secondary;
 
+import fr.ippon.mill.farmer.domain.CropType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.EnumType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
@@ -25,7 +28,8 @@ public class DeliveryEntity {
 
   Date deliveryDate;
 
-  String cropType;
+  @Enumerated(EnumType.STRING)
+  CropType cropType;
 
 
   public Long getId() {
@@ -52,11 +56,11 @@ public class DeliveryEntity {
     this.deliveryDate = deliveryDate;
   }
 
-  public String getCropType() {
+  public CropType getCropType() {
     return cropType;
   }
 
-  public void setCropType(String cropType) {
+  public void setCropType(CropType cropType) {
     this.cropType = cropType;
   }
 }
